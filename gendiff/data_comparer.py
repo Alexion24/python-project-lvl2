@@ -1,9 +1,5 @@
-import json
-
-
 def compare_data(data1, data2):
     diff = {}
-    diff_list = ['{']
     keys1, keys2 = data1.keys(), data2.keys()
     keys_union = sorted(keys1 | keys2)
     for key in keys_union:
@@ -16,6 +12,11 @@ def compare_data(data1, data2):
         else:
             diff.setdefault(f'- {key}', data1[key])
             diff.setdefault(f'+ {key}', data2[key])
+    return diff
+
+
+def stringify_diff(diff):
+    diff_list = ['{']
     for key, value in diff.items():
         if isinstance(value, bool):
             value = f'{value}'.lower()
