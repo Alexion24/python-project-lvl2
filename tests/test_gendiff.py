@@ -7,8 +7,13 @@ YAML_FILE1 = 'tests/fixtures/file1.yaml'
 YAML_FILE2 = 'tests/fixtures/file2.yaml'
 YML_FILE1 = 'tests/fixtures/file1.yml'
 YML_FILE2 = 'tests/fixtures/file2.yml'
+NESTED_JSON_FILE1 = 'tests/fixtures/file1_nested.json'
+NESTED_JSON_FILE2 = 'tests/fixtures/file2_nested.json'
+NESTED_YAML_FILE1 = 'tests/fixtures/file1_nested.yaml'
+NESTED_YAML_FILE2 = 'tests/fixtures/file2_nested.yaml'
 
 ANSWER_FLAT = 'tests/fixtures/answer_flat'
+ANSWER_NESTED = 'tests/fixtures/answer_nested'
 
 
 def get_answer(answer_path):
@@ -21,3 +26,11 @@ def test_generate_diff_json():
 
 def test_generate_diff_yaml():
     assert generate_diff(YML_FILE1, YML_FILE2) == get_answer(ANSWER_FLAT)
+
+
+def test_generate_diff_nested():
+    print(generate_diff(NESTED_JSON_FILE1, NESTED_JSON_FILE2))
+    assert generate_diff(NESTED_JSON_FILE1, NESTED_JSON_FILE2) \
+           == get_answer(ANSWER_NESTED)
+    assert generate_diff(NESTED_YAML_FILE1, NESTED_YAML_FILE2) \
+           == get_answer(ANSWER_NESTED)
