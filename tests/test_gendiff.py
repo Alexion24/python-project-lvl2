@@ -29,7 +29,6 @@ def test_generate_diff_yaml():
 
 
 def test_generate_diff_nested():
-    print(generate_diff(NESTED_JSON_FILE1, NESTED_JSON_FILE2))
     assert generate_diff(NESTED_JSON_FILE1, NESTED_JSON_FILE2) \
            == get_answer(ANSWER_NESTED)
     assert generate_diff(NESTED_YAML_FILE1, NESTED_YAML_FILE2) \
