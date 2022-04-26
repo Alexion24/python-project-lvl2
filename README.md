@@ -11,3 +11,5 @@
 [![asciicast](https://asciinema.org/a/r311HMrFERp5VxUFgTFTQZ3jg.svg)](https://asciinema.org/a/r311HMrFERp5VxUFgTFTQZ3jg)
 #### Compare two nested JSON and YAML files with stylish format.
 [![asciicast](https://asciinema.org/a/RKgOL0CALBlaiXRNhsPHQLE7g.svg)](https://asciinema.org/a/RKgOL0CALBlaiXRNhsPHQLE7g)
+#### Compare two flat and nested JSON and YAML files with plain format.
+[![asciicast](https://asciinema.org/a/cyP78bKIKgfVsTfSqaPpgF0Hg.svg)](https://asciinema.org/a/cyP78bKIKgfVsTfSqaPpgF0Hg)
