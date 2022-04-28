@@ -1,11 +1,12 @@
 import json
+from gendiff.types import NESTED, ADDED, REMOVED, CHANGED, UNCHANGED
 
 
 INDENT = '    '
 VALUE_TYPES = {
-    'added': '  + ',
-    'removed': '  - ',
-    'unchanged': '    '
+    ADDED: '  + ',
+    REMOVED: '  - ',
+    UNCHANGED: '    '
 }
 
 
@@ -37,17 +38,17 @@ def get_stringify_diff(diff, depth):
     for key, value_types in diff.items():
         type_ = value_types.get('type')
         value = value_types.get('value')
-        if type_ == 'nested':
+        if type_ == NESTED:
             result_key = f'{spaces}{INDENT}{key}: ' \
                          f'{{\n{get_stringify_diff(value, depth + 1)}'
             result_value = f'{spaces}{INDENT}}}'
             diff_list.extend([result_key, result_value])
-        elif type_ == 'changed':
+        elif type_ == CHANGED:
             old_value = value.get('old value')
             new_value = value.get('new value')
-            result_key = f'{spaces}{VALUE_TYPES["removed"]}{key}: ' \
+            result_key = f'{spaces}{VALUE_TYPES[REMOVED]}{key}: ' \
                          f'{get_string(old_value, depth + 1)}'
-            result_value = f'{spaces}{VALUE_TYPES["added"]}{key}: ' \
+            result_value = f'{spaces}{VALUE_TYPES[ADDED]}{key}: ' \
                            f'{get_string(new_value, depth + 1)}'
             diff_list.extend([result_key, result_value])
         else:

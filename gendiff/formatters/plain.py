@@ -1,10 +1,11 @@
 import json
+from gendiff.types import NESTED, ADDED, REMOVED, CHANGED
 
 
 DIFF_MESSAGES = {
-    'added': "Property '{path}' was added with value: {value}",
-    'removed': "Property '{path}' was removed",
-    'changed': "Property '{path}' was updated. From {old_value} to {new_value}"
+    ADDED: "Property '{path}' was added with value: {value}",
+    REMOVED: "Property '{path}' was removed",
+    CHANGED: "Property '{path}' was updated. From {old_value} to {new_value}"
 }
 
 
@@ -31,9 +32,9 @@ def get_message_string(diff, previous_path):
         path = get_path_string(previous_path, key)
         type_ = value_types.get('type')
         value = value_types.get('value')
-        if type_ == 'nested':
+        if type_ == NESTED:
             messages.append(get_message_string(value, path))
-        elif type_ == 'changed':
+        elif type_ == CHANGED:
             old_value = get_stringify_value(value.get('old value'))
             new_value = get_stringify_value(value.get('new value'))
             message = DIFF_MESSAGES[type_].format(
@@ -42,11 +43,11 @@ def get_message_string(diff, previous_path):
                 new_value=new_value
             )
             messages.append(message)
-        elif type_ == 'added':
+        elif type_ == ADDED:
             value = get_stringify_value(value_types.get('value'))
             message = DIFF_MESSAGES[type_].format(path=path, value=value)
             messages.append(message)
-        elif type_ == 'removed':
+        elif type_ == REMOVED:
             message = DIFF_MESSAGES[type_].format(path=path)
             messages.append(message)
     return '\n'.join(messages)
