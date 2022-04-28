@@ -1,10 +1,15 @@
+import os
+
+
 def read_file(filepath):
     with open(filepath, 'r') as file:
         return file.read()
 
 
 def get_format(filepath):
-    if filepath.endswith('.yml') or filepath.endswith('.yaml'):
+    root, ext = os.path.splitext(filepath)
+    if ext == '.yml' or ext == '.yaml':
         return 'yaml'
-    elif filepath.endswith('.json'):
+    elif ext == '.json':
         return 'json'
+    raise Exception('Wrong file format. Available formats: yaml, yml or json')
