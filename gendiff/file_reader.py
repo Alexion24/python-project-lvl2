@@ -12,4 +12,4 @@ def get_format(filepath):
         return 'yaml'
     elif ext == '.json':
         return 'json'
-    raise Exception('Wrong file format. Available formats: yaml, yml or json')
+
