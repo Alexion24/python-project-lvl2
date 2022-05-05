@@ -1,5 +1,0 @@
-NESTED = 'nested'
-ADDED = 'added'
-REMOVED = 'removed'
-CHANGED = 'changed'
-UNCHANGED = 'unchanged'

@@ -1,5 +1,5 @@
 import json
-from gendiff.types import NESTED, ADDED, REMOVED, CHANGED, UNCHANGED
+from gendiff.data_comparer import NESTED, ADDED, REMOVED, CHANGED, UNCHANGED
 
 
 INDENT = '    '

@@ -1,4 +1,8 @@
-from gendiff.types import NESTED, ADDED, REMOVED, CHANGED, UNCHANGED
+NESTED = 'nested'
+ADDED = 'added'
+REMOVED = 'removed'
+CHANGED = 'changed'
+UNCHANGED = 'unchanged'
 
 
 def compare_data(data1, data2):
