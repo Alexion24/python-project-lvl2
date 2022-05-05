@@ -12,4 +12,3 @@ def get_format(filepath):
         return 'yaml'
     elif ext == '.json':
         return 'json'
-
